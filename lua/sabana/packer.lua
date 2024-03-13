@@ -43,6 +43,14 @@ return require('packer').startup(function(use)
         }
     }
 
+    use {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = function()
+        require("nvim-autopairs").setup {}
+    end
+    }
+
     -- Debugging
     use 'mfussenegger/nvim-dap'
     use 'leoluz/nvim-dap-go'
@@ -60,10 +68,6 @@ return require('packer').startup(function(use)
 
     -- Todo comments
     use 'folke/todo-comments.nvim'
-
-    -- magit
-    use 'TimUntersberger/neogit'
-    require('neogit').setup()
 
     -- grammar checking
     use 'rhysd/vim-grammarous'

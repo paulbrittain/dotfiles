@@ -9,57 +9,60 @@ vim.keymap.set("n", "<leader>lp", ":lua require'dap'.set_breakpoint(nil, nil, vi
 vim.keymap.set("n", "<leader>dr", ":lua require'dap'.repl.open()<CR>")
 vim.keymap.set("n", "<leader>dt", ":lua require'dap-go'.debug_test()<CR>")
 
-
-require('dap-go').setup {
-  -- Additional dap configurations can be added.
-  -- dap_configurations accepts a list of tables where each entry
-  -- represents a dap configuration. For more details do:
-  -- :help dap-configuration
-  dap_configurations = {
-    {
-      -- Must be "go" or it will be ignored by the plugin
-      type = "go",
-      name = "Attach remote",
-      mode = "remote",
-      request = "attach",
-    },
-    {
-      type = "go",
-      name= "Event",
-      --port= 45000,
-      request= "attach",
-      mode= "remote",
-      --logOutput= "rpc",
-      --showLog= true,
-      --trace= "log",
-    }
-  },
-  delve = {
-      port = 45000,
-  }
-}
-
+--require('dap-config')
 require('nvim-dap-virtual-text').setup()
 require('dapui').setup()
 
 local dap, dapui = require("dap"), require("dapui")
---   dap.adapters.go = {
---     type = "server",
---     port = 9004,
---   }
---   dap.configurations.go = {
---     {
---       type = "go",
---       name= "Event",
---       port= 45000,
---       request= "attach",
---       mode= "remote",
---       logOutput= "rpc",
---       showLog= true,
---       trace= "log",
---       dlvToolPath = vim.fn.exepath("dlv"),
---     }
--- }
+
+dap.adapters.go = function(callback, config)
+  local stdout = vim.loop.new_pipe(false)
+  local handle
+  local pid_or_err
+  local port = config.port -- This should match the port your Delve instance is listening on
+  local addr = config.host or "127.0.0.1" -- This is the default, adjust if necessary
+  local opts = {
+    stdio = {nil, stdout},
+    args = {"dap", "-l", addr .. ":" .. port},
+    detached = true
+  }
+  handle, pid_or_err = vim.loop.spawn("dlv", opts, function(code)
+    stdout:close()
+    handle:close()
+    if code ~= 0 then
+      print('dlv exited with code', code)
+    end
+  end)
+  assert(handle, 'Error running dlv: ' .. tostring(pid_or_err))
+  stdout:read_start(function(err, chunk)
+    assert(not err, err)
+    if chunk then
+      vim.schedule(function()
+        require('dap.repl').append(chunk)
+      end)
+    end
+  end)
+  -- Wait for delve to start
+  vim.defer_fn(
+    function()
+      callback({type = "server", host = addr, port = port})
+    end,
+    100) -- Adjust delay as needed
+end
+
+dap.configurations.go = {
+  {
+    type = "go",
+    name = "Debug Event Container",
+    request = "attach",
+    mode = "remote",
+    port = 45000, -- The Delve port inside your container
+    host = "127.0.0.1", -- Use the appropriate IP if different
+    program = "${file}", -- Adjust as needed
+  },
+}
+
+
 dap.listeners.before.attach.dapui_config = function()
   dapui.open()
 end
