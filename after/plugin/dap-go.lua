@@ -10,11 +10,56 @@ vim.keymap.set("n", "<leader>dr", ":lua require'dap'.repl.open()<CR>")
 vim.keymap.set("n", "<leader>dt", ":lua require'dap-go'.debug_test()<CR>")
 
 
-require('dap-go').setup()
+require('dap-go').setup {
+  -- Additional dap configurations can be added.
+  -- dap_configurations accepts a list of tables where each entry
+  -- represents a dap configuration. For more details do:
+  -- :help dap-configuration
+  dap_configurations = {
+    {
+      -- Must be "go" or it will be ignored by the plugin
+      type = "go",
+      name = "Attach remote",
+      mode = "remote",
+      request = "attach",
+    },
+    {
+      type = "go",
+      name= "Event",
+      --port= 45000,
+      request= "attach",
+      mode= "remote",
+      --logOutput= "rpc",
+      --showLog= true,
+      --trace= "log",
+    }
+  },
+  delve = {
+      port = 45000,
+  }
+}
+
 require('nvim-dap-virtual-text').setup()
 require('dapui').setup()
 
 local dap, dapui = require("dap"), require("dapui")
+--   dap.adapters.go = {
+--     type = "server",
+--     port = 9004,
+--   }
+--   dap.configurations.go = {
+--     {
+--       type = "go",
+--       name= "Event",
+--       port= 45000,
+--       request= "attach",
+--       mode= "remote",
+--       logOutput= "rpc",
+--       showLog= true,
+--       trace= "log",
+--       dlvToolPath = vim.fn.exepath("dlv"),
+--     }
+-- }
 dap.listeners.before.attach.dapui_config = function()
   dapui.open()
 end

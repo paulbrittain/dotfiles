@@ -55,7 +55,16 @@ return require('packer').startup(function(use)
     use "EdenEast/nightfox.nvim"
     use "tjdevries/colorbuddy.nvim"
 
+    --devicons
+    use 'kyazdani42/nvim-web-devicons'
+
     -- Todo comments
     use 'folke/todo-comments.nvim'
 
+    -- magit
+    use 'TimUntersberger/neogit'
+    require('neogit').setup()
+
+    -- grammar checking
+    use 'rhysd/vim-grammarous'
 end)

@@ -45,6 +45,8 @@ vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
+
+--vim.keymap.set("n", "<leader>S>", "<cmd>Telescope lsp_document_symbols<CR>")
 end)
 
 

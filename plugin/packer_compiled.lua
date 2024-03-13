@@ -139,6 +139,11 @@ _G.packer_plugins = {
     path = "/home/sabana/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  neogit = {
+    loaded = true,
+    path = "/home/sabana/.local/share/nvim/site/pack/packer/start/neogit",
+    url = "https://github.com/TimUntersberger/neogit"
+  },
   ["nightfox.nvim"] = {
     loaded = true,
     path = "/home/sabana/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
@@ -179,6 +184,11 @@ _G.packer_plugins = {
     path = "/home/sabana/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "/home/sabana/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/kyazdani42/nvim-web-devicons"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/sabana/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -218,6 +228,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/sabana/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["vim-grammarous"] = {
+    loaded = true,
+    path = "/home/sabana/.local/share/nvim/site/pack/packer/start/vim-grammarous",
+    url = "https://github.com/rhysd/vim-grammarous"
   }
 }
 
