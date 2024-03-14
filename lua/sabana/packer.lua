@@ -3,10 +3,18 @@
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
+
 return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
+    -- Golang
+    use 'fatih/vim-go'
+
+    use { "ibhagwan/fzf-lua",
+      -- optional for icon support
+      requires = { "nvim-tree/nvim-web-devicons" }
+    }
 
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.5',
@@ -71,4 +79,9 @@ return require('packer').startup(function(use)
 
     -- grammar checking
     use 'rhysd/vim-grammarous'
+
+    use {
+        "nvim-telescope/telescope-file-browser.nvim",
+        requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+    }
 end)

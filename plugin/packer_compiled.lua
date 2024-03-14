@@ -119,6 +119,11 @@ _G.packer_plugins = {
     path = "/home/sabana/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
+  ["fzf-lua"] = {
+    loaded = true,
+    path = "/home/sabana/.local/share/nvim/site/pack/packer/start/fzf-lua",
+    url = "https://github.com/ibhagwan/fzf-lua"
+  },
   harpoon = {
     loaded = true,
     path = "/home/sabana/.local/share/nvim/site/pack/packer/start/harpoon",
@@ -212,6 +217,11 @@ _G.packer_plugins = {
     path = "/home/sabana/.local/share/nvim/site/pack/packer/start/telescope-dap.nvim",
     url = "https://github.com/nvim-telescope/telescope-dap.nvim"
   },
+  ["telescope-file-browser.nvim"] = {
+    loaded = true,
+    path = "/home/sabana/.local/share/nvim/site/pack/packer/start/telescope-file-browser.nvim",
+    url = "https://github.com/nvim-telescope/telescope-file-browser.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/sabana/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -231,6 +241,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/sabana/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["vim-go"] = {
+    loaded = true,
+    path = "/home/sabana/.local/share/nvim/site/pack/packer/start/vim-go",
+    url = "https://github.com/fatih/vim-go"
   },
   ["vim-grammarous"] = {
     loaded = true,
