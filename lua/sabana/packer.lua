@@ -66,7 +66,11 @@ return require('packer').startup(function(use)
 
     -- Debugging
     use 'mfussenegger/nvim-dap'
-    use 'leoluz/nvim-dap-go'
+    use { 'leoluz/nvim-dap-go',
+        requires = {
+            'nvim-neotest/nvim-nio'
+        }
+    }
     use 'rcarriga/nvim-dap-ui'
     use 'theHamsta/nvim-dap-virtual-text'
     use 'nvim-telescope/telescope-dap.nvim'
