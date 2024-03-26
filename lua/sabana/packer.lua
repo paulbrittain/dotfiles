@@ -22,6 +22,13 @@ return require('packer').startup(function(use)
         requires = { {'nvim-lua/plenary.nvim'} }
     }
 
+    use {
+        "nvim-telescope/telescope-frecency.nvim",
+        config = function()
+        require("telescope").load_extension "frecency"
+        end,
+    }
+
     use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
     use('nvim-treesitter/playground')
     use('mbbill/undotree')
@@ -84,7 +91,7 @@ return require('packer').startup(function(use)
     use 'kyazdani42/nvim-web-devicons'
 
     -- Todo comments
-    use 'folke/todo-comments.nvim'
+    -- use 'folke/todo-comments.nvim'
 
     -- grammar checking
     use 'rhysd/vim-grammarous'
@@ -96,4 +103,15 @@ return require('packer').startup(function(use)
           'nvim-tree/nvim-web-devicons', -- optional
         },
       }
+
+    -- Getting gud
+    use 'ThePrimeagen/vim-be-good'
+
+    -- Code screenshots
+    use "ellisonleao/carbon-now.nvim"
+
+    -- Tmux integration
+    use { "christoomey/vim-tmux-navigator",
+        lazy = true
+    }
 end)
