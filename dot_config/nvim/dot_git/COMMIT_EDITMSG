@@ -1,0 +1,15 @@
+Various improvements to keybindings, and properly configuring theme.
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch main
+# Your branch is up to date with 'origin/main'.
+#
+# Changes to be committed:
+#	new file:   after/plugin/catppuccin.lua
+#	modified:   after/plugin/lsp.lua
+#	modified:   lua/sabana/packer.lua
+#	modified:   lua/sabana/remap.lua
+#	modified:   lua/sabana/set.lua
+#

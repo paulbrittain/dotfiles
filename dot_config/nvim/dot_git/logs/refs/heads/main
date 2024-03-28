@@ -1,0 +1,11 @@
+0000000000000000000000000000000000000000 5bf06a1d3b9dc80a46b61f40d085dc3aed79f039 Paul Brittain <paulsabana@gmail.com> 1710091738 +0100	commit (initial): Initial commit.
+5bf06a1d3b9dc80a46b61f40d085dc3aed79f039 5bf06a1d3b9dc80a46b61f40d085dc3aed79f039 Paul Brittain <paulsabana@gmail.com> 1710092318 +0100	Branch: renamed refs/heads/master to refs/heads/main
+5bf06a1d3b9dc80a46b61f40d085dc3aed79f039 8e62552aa3efe133f410682848e0a7ba4deabb4a Paul Brittain <paulsabana@gmail.com> 1710186022 +0100	commit: 1. Debugging works. But there's an issue with the icons.
+8e62552aa3efe133f410682848e0a7ba4deabb4a 3bd2267a86604ea7a57d150daae77ef365d71d5b Paul Brittain <paulsabana@gmail.com> 1710335201 +0100	commit: Added devicons, grammarous, neogit.
+3bd2267a86604ea7a57d150daae77ef365d71d5b 55a4b1808c33217443faaba91cf1f60ba7041774 Paul Brittain <paulsabana@gmail.com> 1710362791 +0100	commit: Added autopairs and smarter braces.
+55a4b1808c33217443faaba91cf1f60ba7041774 f5cd070f5e9f73365250af0f7fc9ffdc8667719b Paul Brittain <paulsabana@gmail.com> 1710443175 +0100	commit: Added fzf for fuzzing searching.
+f5cd070f5e9f73365250af0f7fc9ffdc8667719b 4c72c70c1f27a402040a4202407b0284455c19ab Paul Brittain <paulsabana@gmail.com> 1710538566 +0100	commit: Upgraded harpoon to harpoon2.
+4c72c70c1f27a402040a4202407b0284455c19ab f10caaa5cff53177d124b0ccb55a28ce397c65dd Paul Brittain <paulsabana@gmail.com> 1711204393 +0100	commit: Revert debugging changes back to a state where local, normal debugging
+f10caaa5cff53177d124b0ccb55a28ce397c65dd 4d72ea7e646788fb43836c7995ba785ae95e1ba9 Paul Brittain <paulsabana@gmail.com> 1711206254 +0100	commit: Add fugitive customizations.
+4d72ea7e646788fb43836c7995ba785ae95e1ba9 de1efdc472393e3d7cd1110660fbfcd089549874 Paul Brittain <paulsabana@gmail.com> 1711480642 +0100	commit: Various improvements.
+de1efdc472393e3d7cd1110660fbfcd089549874 14b2ef41f689749c4ad56ef5200cf54d60d78c38 Paul Brittain <paulsabana@gmail.com> 1711627130 +0100	commit: Various improvements to keybindings, and properly configuring theme.
