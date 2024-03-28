@@ -83,7 +83,10 @@ return require('packer').startup(function(use)
     use 'nvim-telescope/telescope-dap.nvim'
 
     -- Theme
-    use { 'catppuccin/nvim', as = 'catppuccin' }
+    use { 'catppuccin/nvim',
+        as = 'catppuccin',
+        transparent_background = true,
+    }
     use "EdenEast/nightfox.nvim"
     use "tjdevries/colorbuddy.nvim"
 
