@@ -11,33 +11,44 @@ return require('packer').startup(function(use)
     -- Golang
     use 'fatih/vim-go'
 
-    use { "ibhagwan/fzf-lua",
-      -- optional for icon support
-      requires = { "nvim-tree/nvim-web-devicons" }
-    }
-
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.5',
         -- or                            , branch = '0.1.x',
-        requires = { {'nvim-lua/plenary.nvim'} }
+        requires = { { 'nvim-lua/plenary.nvim' } }
     }
+
+    use {
+        "danielfalk/smart-open.nvim",
+  branch = "0.2.x",
+  config = function()
+    require"telescope".load_extension("smart_open")
+  end,
+  requires = {
+    {"kkharji/sqlite.lua"},
+    -- Only required if using match_algorithm fzf
+    { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+    -- Optional.  If installed, native fzy will be used when match_algorithm is fzy
+    { "nvim-telescope/telescope-fzy-native.nvim" },
+  }
+}
 
     use {
         "nvim-telescope/telescope-frecency.nvim",
         config = function()
-        require("telescope").load_extension "frecency"
+            require("telescope").load_extension "frecency"
         end,
     }
 
-    use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     use('nvim-treesitter/playground')
+    use('nvim-treesitter/nvim-treesitter-context')
     use('mbbill/undotree')
     use('tpope/vim-fugitive')
 
     use {
         "ThePrimeagen/harpoon",
         branch = "harpoon2",
-        requires = { {"nvim-lua/plenary.nvim"} }
+        requires = { { "nvim-lua/plenary.nvim" } }
     }
 
     use {
@@ -45,40 +56,36 @@ return require('packer').startup(function(use)
         branch = "v1.x",
         requires = {
             -- LSP Support
-            {"neovim/nvim-lspconfig"},
-            {"williamboman/mason.nvim"},
-            {"williamboman/mason-lspconfig.nvim"},
+            { "neovim/nvim-lspconfig" },
+            { "williamboman/mason.nvim" },
+            { "williamboman/mason-lspconfig.nvim" },
 
             -- Autocompletion
-            {"hrsh7th/nvim-cmp"},
-            {"hrsh7th/cmp-buffer"},
-            {"hrsh7th/cmp-path"},
-            {"saadparwaiz1/cmp_luasnip"},
-            {"hrsh7th/cmp-nvim-lsp"},
-            {"hrsh7th/cmp-nvim-lua"},
+            { "hrsh7th/nvim-cmp" },
+            { "hrsh7th/cmp-buffer" },
+            { "hrsh7th/cmp-path" },
+            { "saadparwaiz1/cmp_luasnip" },
+            { "hrsh7th/cmp-nvim-lsp" },
+            { "hrsh7th/cmp-nvim-lua" },
 
             -- Snippets
-            {"L3MON4D3/LuaSnip"},
-            {"rafamadriz/friendly-snippets"},
+            { "L3MON4D3/LuaSnip" },
+            { "rafamadriz/friendly-snippets" },
         }
     }
 
     use {
-    "windwp/nvim-autopairs",
-    event = "InsertEnter",
-    config = function()
-        require("nvim-autopairs").setup {}
-    end
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        config = function()
+            require("nvim-autopairs").setup {}
+        end
     }
 
     -- Debugging
     use 'mfussenegger/nvim-dap'
-    use { 'leoluz/nvim-dap-go',
-        requires = {
-            'nvim-neotest/nvim-nio'
-        }
-    }
-    use 'rcarriga/nvim-dap-ui'
+    use 'leoluz/nvim-dap-go'
+    use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } }
     use 'theHamsta/nvim-dap-virtual-text'
     use 'nvim-telescope/telescope-dap.nvim'
 
@@ -103,9 +110,9 @@ return require('packer').startup(function(use)
     use {
         'nvim-tree/nvim-tree.lua',
         requires = {
-          'nvim-tree/nvim-web-devicons', -- optional
+            'nvim-tree/nvim-web-devicons', -- optional
         },
-      }
+    }
 
     -- Getting gud
     use 'ThePrimeagen/vim-be-good'
@@ -117,4 +124,31 @@ return require('packer').startup(function(use)
     use { "christoomey/vim-tmux-navigator",
         lazy = true
     }
+
+    use({
+  "epwalsh/obsidian.nvim",
+  tag = "*",  -- recommended, use latest release instead of latest commit
+  requires = {
+    -- Required.
+    "nvim-lua/plenary.nvim",
+
+    -- see below for full list of optional dependencies 👇
+  },
+  config = function()
+    require("obsidian").setup({
+      workspaces = {
+        {
+          name = "personal",
+          path = "~/vaults/personal",
+        },
+        {
+          name = "helio",
+          path = "~/vaults/work/helio",
+        },
+      },
+
+      -- see below for full list of options 👇
+    })
+  end,
+})
 end)

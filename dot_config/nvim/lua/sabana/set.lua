@@ -27,3 +27,16 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
+
+vim.opt.conceallevel = 1
+
+vim.opt.clipboard = 'unnamedplus'
+
+--  Not sure where to save config like this. Keeping it here for now.
+vim.api.nvim_create_autocmd('TextYankPost', {
+    desc = "Highlight when yanking text",
+    group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
+    callback = function()
+        vim.highlight.on_yank()
+    end,
+})

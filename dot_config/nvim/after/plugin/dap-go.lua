@@ -12,23 +12,7 @@ vim.keymap.set("n", "<leader>dt", ":lua require'dap-go'.debug_test()<CR>")
 --require('dap-config')
 require('nvim-dap-virtual-text').setup()
 require('dapui').setup()
-
-require('dap-go').setup {
-  -- Additional dap configurations can be added.
-  -- dap_configurations accepts a list of tables where each entry
-  -- represents a dap configuration. For more details do:
-  -- :help dap-configuration
-  dap_configurations = {
-    {
-      type = "go",
-      name = "Debug Package (with Arguments)",
-      request = "launch",
-      program = "${fileDirname}",
-      args = {"crawl"},
-    },
-  },
-}
-
+require('dap-go').setup()
 
 local dap, dapui = require("dap"), require("dapui")
 
