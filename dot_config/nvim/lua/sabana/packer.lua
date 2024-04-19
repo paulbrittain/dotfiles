@@ -17,6 +17,11 @@ return require('packer').startup(function(use)
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
+use {
+    "nvim-telescope/telescope-file-browser.nvim",
+    requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+}
+
     use {
         "danielfalk/smart-open.nvim",
   branch = "0.2.x",
@@ -126,13 +131,10 @@ return require('packer').startup(function(use)
     }
 
     use({
-  "epwalsh/obsidian.nvim",
-  tag = "*",  -- recommended, use latest release instead of latest commit
-  requires = {
-    -- Required.
-    "nvim-lua/plenary.nvim",
-
-    -- see below for full list of optional dependencies 👇
+        "epwalsh/obsidian.nvim",
+        tag = "*",
+        requires = {
+        "nvim-lua/plenary.nvim",
   },
   config = function()
     require("obsidian").setup({

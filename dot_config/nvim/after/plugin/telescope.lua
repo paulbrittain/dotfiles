@@ -11,6 +11,7 @@ vim.keymap.set('n', '<leader>po', builtin.oldfiles, {})
 
 vim.keymap.set('n', '<leader>pr', ':Telescope resume<CR>')
 
+vim.keymap.set('n', '<space>fb', ':Telescope file_browser path=%:p:h select_buffer=true<CR>')
 
 vim.keymap.set('n', '<leader>fw', ':Telescope grep_string<CR>')
 
